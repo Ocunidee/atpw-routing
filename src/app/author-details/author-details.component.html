@@ -9,7 +9,7 @@
   <h2>Books</h2>
   <ul>
     @for (book of books; track book.id) {
-      <li>{{book.title}} <a>🔍</a></li>
+      <li>{{book.title}} <a [routerLink]="['/books', book.id]">🔍</a></li>
     }
   </ul>
 }

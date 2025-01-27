@@ -1,6 +1,6 @@
 <h1>Books 📚</h1>
 <ul>
   @for(book of books; track book.id) {
-    <li>{{book.title}} - {{book.author}} <a>🔍</a></li>
+    <li>{{book.title}} - {{book.author}} <a [routerLink]="[book.id]">🔍</a></li>
   }
 </ul>
