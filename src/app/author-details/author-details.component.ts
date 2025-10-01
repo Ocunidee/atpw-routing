@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, signal } from '@angular/core'
 import { AuthorDetail } from '../models/author-detail'
 import { authorDetails } from '../data/author-details'
 
@@ -9,9 +9,9 @@ import { authorDetails } from '../data/author-details'
   styleUrl: './author-details.component.scss'
 })
 export class AuthorDetailsComponent implements OnInit {
-  details: AuthorDetail | undefined
+  protected readonly details = signal<AuthorDetail | undefined>(undefined)
 
   ngOnInit(): void {
-    this.details = authorDetails.get(1)
+    this.details.set(authorDetails.get(1))
   }
 }

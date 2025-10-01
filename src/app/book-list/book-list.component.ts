@@ -8,5 +8,5 @@ import { books } from '../data/book-list'
   styleUrl: './book-list.component.scss'
 })
 export class BookListComponent {
-  books = books
+  protected readonly books = books
 }

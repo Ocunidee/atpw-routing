@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, signal } from '@angular/core'
 import { bookDetails } from '../data/book-details'
 import { BookDetail } from '../models/book-detail'
 
@@ -9,9 +9,9 @@ import { BookDetail } from '../models/book-detail'
   styleUrl: './book-details.component.scss'
 })
 export class BookDetailsComponent implements OnInit {
-  details: BookDetail | undefined
+  protected readonly details = signal<BookDetail | undefined>(undefined)
 
   ngOnInit(): void {
-    this.details = bookDetails.get(1)
+    this.details.set(bookDetails.get(1))
   }
 }

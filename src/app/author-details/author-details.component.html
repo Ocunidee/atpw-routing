@@ -1,9 +1,9 @@
-<h1>{{details?.name}}</h1>
+<h1>{{details()?.name}}</h1>
 
-<div><strong>Nationality:</strong> {{details?.nationality}}</div>
-<div><strong>Birth year:</strong> {{details?.birthYear}}</div>
+<div><strong>Nationality:</strong> {{details()?.nationality}}</div>
+<div><strong>Birth year:</strong> {{details()?.birthYear}}</div>
 
-@let books = details?.books;
+@let books = details()?.books;
 
 @if(books) {
   <h2>Books</h2>
