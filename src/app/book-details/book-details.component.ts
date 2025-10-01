@@ -1,17 +1,20 @@
-import { Component, OnInit, signal } from '@angular/core'
+import { Component, inject, OnInit, signal } from '@angular/core'
 import { bookDetails } from '../data/book-details'
 import { BookDetail } from '../models/book-detail'
+import { ActivatedRoute, RouterLink } from '@angular/router'
 
 @Component({
   selector: 'app-book-details',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.scss'
 })
 export class BookDetailsComponent implements OnInit {
+  private readonly route = inject(ActivatedRoute)
   protected readonly details = signal<BookDetail | undefined>(undefined)
 
   ngOnInit(): void {
-    this.details.set(bookDetails.get(1))
+    const id = this.route.snapshot.paramMap.get('id')
+    this.details.set(bookDetails.get(Number(id)))
   }
 }

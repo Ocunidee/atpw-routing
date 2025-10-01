@@ -1,6 +1,6 @@
 <h1>Authors ✍️</h1>
 <ul>
   @for(author of authors; track author.id) {
-    <li>{{author.name}} <a>🔍</a></li>
+    <li>{{author.name}} <a [routerLink]="[author.id]">🔍</a></li>
   }
 </ul>
